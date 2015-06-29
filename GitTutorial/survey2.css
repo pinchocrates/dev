@@ -1,0 +1,55 @@
+html, body {
+	margin:0;
+	padding:0;
+        font-family: Sans-Serif;
+	color:#000;
+	background:#fff;
+}
+#body {
+	width:980px;
+	margin:0 auto;
+	background:#ddd;
+}
+#header {
+	padding:10px;
+	background:#eeeeee;
+}
+#Question {
+	float:left;
+	width:220px;
+	padding:9px;
+        min-height:280px;
+        height:auto !important;
+        height:280px;
+	background:#ffc;
+}
+#Answer {
+	float:right;
+	width:720px;
+        padding:9px;
+        min-height:280px;
+        height:auto !important;
+        height:280px;
+        background:#fcf;
+}
+#debug {
+	clear:both;
+	padding:10px;
+        min-height:170px;
+        height:auto !important;
+        height:170px;
+	background:#cff;
+}
+#footer {
+	clear:both;
+	padding:10px;
+	background:#eeeeee;
+}
+.cf:after {
+	display:block;
+	clear:both;
+	height:0;
+	visibility:hidden;
+	content:" ";
+	font-size:0;
+}

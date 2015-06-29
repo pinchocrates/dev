@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="http://www.platk.in/script1/iter2/survey2.css">
+<title>Welcome to the Survey</title>
+</head>
+<body>
+<div id = "body">
+
+<div id="header"><h3>Welcome to the survey</h3></div>
+ <div id="main">
+   <div id="Question">
+      <p>Your Name: <INPUT TYPE="text" id="myuName" VALUE= ''><br /></p>
+      <p> <button id="cDebug">Clear Debug</button></p>
+      <p> <button id="cAnswr">Clear Answers</button></p>
+      <p> <button id="resetResults">Reset Results</button></p>
+      <p> <button id="seeResults">See Full Results</button></p>
+   </div>
+   <div id="Answer">
+      <p>Answer Zone</p>
+         <p>  <INPUT TYPE="text" id="a1" VALUE= ''> </p>
+         <p>  <INPUT TYPE="text" id="a2" VALUE= ''> </p>
+         <p>  <INPUT TYPE="text" id="a3" VALUE= ''> </p>
+         <p>  <INPUT TYPE="text" id="a4" VALUE= ''> </p>
+         <p>  <INPUT TYPE="text" id="a5" VALUE= ''> </p>
+         <p>  <br /><button id="submitAnswers">Submit Answers</button> </p>
+   </div>
+ </div>
+   <div id="debug">Debug Zone</div>
+   <div id="footer">Copyright &copy; 2015 Pinch&oacute;crates</div>
+</div>
+
+<script>
+document.getElementById("cDebug").onclick = function() {say("")};
+document.getElementById("cAnswr").onclick = function() {makeAll(0)};
+document.getElementById("resetResults").onclick = function() {ajaxMagic("aaaaa10")};
+document.getElementById("submitAnswers").onclick = function() {calculateAndSubmit(0)};
+document.getElementById("seeResults").onclick = function() {ajaxMagic("aaaaa09")};
+
+function makeAll(myv) {
+   document.getElementById("a1").value = myv;
+   document.getElementById("a2").value = myv;
+   document.getElementById("a3").value = myv;
+   document.getElementById("a4").value = myv;
+   document.getElementById("a5").value = myv;
+}
+
+function say(myText) { document.getElementById("debug").innerHTML =  myText; }
+
+function calculateAndSubmit(arg) {  
+  var errstr = "<h3>Please resubmit</h3>Votes do not add up to 10 (note: negative numbers count as zero, non-integers are rounded down).";
+  var q1 =   parseInt(document.getElementById("a1").value);
+  var q2 =   parseInt(document.getElementById("a2").value);
+  var q3 =   parseInt(document.getElementById("a3").value);
+  var q4 =   parseInt(document.getElementById("a4").value);
+  var q5 =   parseInt(document.getElementById("a5").value);
+  var r1 = Math.max(0,q1)+Math.max(0,q2)+Math.max(0,q3)+Math.max(0,q4)+Math.max(0,q5);
+  document.getElementById("debug").innerHTML = (r1==10)?"<h3>Thanks for submitting!</h3>":errstr;
+  var myString = String.fromCharCode(q1+65)+String.fromCharCode(q2+65)+String.fromCharCode(q3+65)+String.fromCharCode(q4+65)+String.fromCharCode(q5+65);
+  if (r1==10) {
+      ajaxMagic(myString + "20" + document.getElementById("myuName").value);
+  }
+}
+
+function ajaxMagic(myParam) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+       document.getElementById("debug").innerHTML = xmlhttp.responseText;
+    }
+  }
+  xmlhttp.open("GET", "/script1/iter2/read2.php?q=" + myParam, true);
+  xmlhttp.send();
+}
+
+</script>
+</body></html>

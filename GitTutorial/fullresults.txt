@@ -1,0 +1,12 @@
+3	3	0	0	4	alex
+3	7	0	0	0	luba
+1	1	1	1	6	rafi
+1	3	3	1	2	rafi
+9	0	0	1	0	nili
+9	1	0	0	0	palacio largo stringo
+9	0	0	0	1	_anonymous
+9	0	0	0	1	Alex
+6	1	1	1	1	Alex
+0	4	5	1	0	Alex
+0	0	0	5	5	nili_dora
+0	0	0	10	0	Sandro de América
